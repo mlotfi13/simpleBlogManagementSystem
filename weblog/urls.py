@@ -10,4 +10,5 @@ urlpatterns = [
 
     url(r'^admin/', include('BMS.urls')),
     url(r'^$', views.homepage, name='HomePage'),
+    url(r'^(?P<username>\w+)/$', views.dummy, name='postsView'),
 ]

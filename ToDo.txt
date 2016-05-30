@@ -1,0 +1,2 @@
+1. Usernames shouldn't contain special characters like /*%#
+2. Usernames should save in the lowercase format 
