@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block contents %}
+{% if user.is_authenticated %}
+<form action="" method="post">{% csrf_token %}
+    <h3>Are you sure you want to delete "{{ object }}"?</h3>
+    <input type="submit" class="btn btn-success" value="Confirm"/>
+    <a href="{% url 'List' %}"> <input type="button" class="btn btn-primary" value="Cancel"></a>
+</form>
+{% else %}
+
+<div class="container">
+    <div class="col-md-4 col-md-offset-4 ">
+        <div class="panel panel-primary ">
+            <div class="panel-heading"><h4> Login First!</h4></div>
+            <div class="panel-body">
+                <h4> You should login to access this page!</h4>
+                <a href="{% url 'login' %}"> <input type="button" class="btn btn-primary" value="Login"></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block contents %}
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="col-md-4 col-md-offset-4 ">
+        <div class="panel panel-primary ">
+            <div class="panel-heading"><h4 align="center">Login Failure!</h4></div>
+            <div class="panel-body">
+                <h5> This user doesn't exists, or the password is wrong!</h5>
+                <a href="{% url 'login' %}"> <input type="button" class="btn btn-primary" value="Back"></a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
