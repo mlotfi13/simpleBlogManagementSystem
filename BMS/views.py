@@ -5,13 +5,13 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.views.generic import ListView
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
-from .models import Account
+from .models import Account , Post 
 from django.contrib.auth import authenticate, login as auth_login
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404
 # Create your views here.
 
-def login(request):
+def Adminlogin(request):
     if request.method == "GET":
         if request.user.is_authenticated():
             return HttpResponseRedirect('list/')
@@ -35,9 +35,15 @@ def dummy(request,username):
     # u = get_object_or_404(Account, username=username)
     try:
         u = Account.objects.get(username=username)
+        try:
+
+            p = Post.objects.get(user=u.pk)
+        except ObjectDoesNotExist:
+            return HttpResponse("<h1>This user doesn't have any posts already!</h1> ")
     except ObjectDoesNotExist:
         return HttpResponse("<h1>User doesn't exists! </h1> ")
     return HttpResponse("<h1>Salam " + str(u)+ "</h1>")
+
 
 class UserList(ListView):
     model = Account
